@@ -16,6 +16,8 @@ In order to get the average income of each service area here we used income data
 
 (Image of Search By Service Area Graph)
 
+![image tooltip here](/images/Geospacial Income and Search.png)
+
 Here we have each Service Area represented as a bubble and we can see an inverse relationship between the average income of the service area and the rate that drivers are searched. 
 
 There may be two outliers below the curve at around 70k, but looking at it geospacially it can be more easily explained.
