@@ -44,3 +44,45 @@ This graph shows the percent change from the hour before twilight and after twil
 
 What we see here is that lower income service area get stopped notably more after twilight, while higher income service areas get stopped less often.
 
+(Low Graph)
+
+(Med Graph)
+
+(High Graph)
+
+After grouping the service areas into three categories based on income for low, medium and high income, there seems to be little evidence of racial profiling shown through the veil of darkness technique.
+
+However seeing that there is still a notable change in stop rate before and after twilight, the lower income service areas may be more systematically or indirectly targeted based on the average income of the service area.
+
+## Car Price As Income
+
+In order to further our analysis on police stop data, we wanted to include the price of the car stopped to see if there is a socioeconomic factor in police stop, search and arrest rates. From the Stanford Open Police Project, we found a dataset that includes stop data from San Antonio, Texas, with the make, model and year of the car stopped. I wanted to join this onto a dataset to get the price of the car that was stopped. We found two potential datasets that we could join on, a Kaggle dataset, and a Kelly Blue Book (KBB) dataset. However, several potential problems soon arose: the Texas data abbreviated the make and model of the car. For example, a 2015 Toyota Tundra would be 2015 TOY TUND, whereas the other datasets (kaggle and KBB) both used full names. After some consideration, I elected to go with the KBB data, as it was more complete and included more makes and models of cars. The Texas data includes over 20,000 unique year, make and model cars, and the KBB data provides price data for 17,651 unique year make and model cars. I first tried to use difflib to find closest matches directly between these two datasets, but the code was too inefficient and would take many hours to run. Difflib.get_close_matches() returns a “close enough” match based on the number of similarities it can find between a string and a list of comparison strings. 
+
+To work around the large datasets and runtime of get_close_matches, I first made a dictionary that matches the car make as listed in the texas dataset with the car makes in the KBB dataset by hand. The resulting dictionary had 44 matches. I then made an empty dictionary to hold the price of each make and model. Then, for each car in the Kelly Blue Book data, I found the closest match in the texas data to the full car name, (year, make, model), then set that closest match to be a key in the empty dictionary. I then set the value for that key to be the price from the KBB data. I converted that dictionary into a dataset, cleaned it and gave it column names, then merged it onto the texas dataset to get a dataset that has 65217 rows. Overall, the quality of the join is decent, but leaves much to be desired. After cleaning the Texas dataset, it had 873,113 rows with car data in them, but the join reduced that to just 65,217 rows, a reduction of 92%. Even though there is still plenty of data to be analyzed, it shows that this join method is far from optimal, and is something that can be improved upon in the future. A working hypothesis on why so much data could not be matched is due to a mismatch between KBB and Texas datasets, with KBB not having some cars mentioned in the Texas Dataset. It could also be due to the messy nature of the Texas Dataset, with some cars having wildly incorrect ages, making it impossible to find a similar match with KBB data. 
+
+# Feedback Loop Simulation
+
+When we are preparing the Stanford Open Policing Data, we try to rule out columns that we
+think are not features that a police officer can come up with at the time of the stop if they wish to
+use our model. We decided to stick with 9 features, all of which are reasonable in that a police
+officer is able to pull up all the information necessary to input into the model. For example, we
+have the service area, a police officer should know which area they are currently assigned to, we
+have race/sex/age that can be pulled up from the license plate (only correct if the person driving
+is who the car is registered to), and day of the week.
+While cleaning and preparing our data, we are also trying to make our label/prediction much
+better. For example if our initial data had been a search but there was no contraband found then
+in our newly created label we would have a 0 meaning there should not have been a search in the
+first place.
+
+So how our model works is that it takes in the first n months (lets use 3 in this example) and
+trains the model on it. Then we take the next 3 months (April, May, June) and predict on that.
+When we have those predictions we then replace the actual labels with the predicted labels and
+we refit the model with April, May, June and the predicted labels and then we take the 3 months
+after and do the same until we reach December. We evaluate our model using recall and
+precision, as well as accuracy. The current Classifier we are using is LDA, but we will keep
+trying out different models to see which works best.
+
+If this model were to be deployed, we would expect police officers to use it if they had someone
+stopped and were trying to figure out if they should search them or not. The inputs to the model
+would all be available to the officer performing the stop, therefore the model should be able to
+give a good prediction of whether or not the officer should search or not.
