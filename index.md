@@ -14,15 +14,13 @@ The first methods we used to to judge a driver's percived income is using the av
 
 In order to get the average income of each service area here we used income data from the 2010 US census. Then we geospacially joined the service areas and the census tracts and got the average of all census tracts within each service area to get the average income of each service area.
 
-(Image of Search By Service Area Graph)
-
-![image tooltip here](/images/Geospacial Income and Search.png)
+![image tooltip here](/images/Searched By Service Area.png)
 
 Here we have each Service Area represented as a bubble and we can see an inverse relationship between the average income of the service area and the rate that drivers are searched. 
 
 There may be two outliers below the curve at around 70k, but looking at it geospacially it can be more easily explained.
 
-(geospacial plots)
+![image tooltip here](/images/Geospacial Income and Search.png)
 
 In these geospacial plots, we can see the service areas with the lowest average income near the bottom right of San Diego county. And we see the 5 areas with the highest number of searches also in that area clustered together. 
 
@@ -40,17 +38,13 @@ By adding the income of the service areas, we may be able to see a pattern emerg
 
 Another thing we can look at here is how different service areas may be treated after dark, where police might deem a car more suspicious for driving after twilight.
 
-(Stop Rate Change Graph)
+![image tooltip here](/images/Stop After Twilight.png)
 
 This graph shows the percent change from the hour before twilight and after twilight. The orange line there is at 0 percent and what would happen if there were 0 change between before and after twilight.
 
 What we see here is that lower income service area get stopped notably more after twilight, while higher income service areas get stopped less often.
 
-(Low Graph)
-
-(Med Graph)
-
-(High Graph)
+![image tooltip here](/images/Stops by Race Low Income.png) ![image tooltip here](/images/Stops by Race Med Income.png) ![image tooltip here](/images/Stops by Race High Income.png)
 
 After grouping the service areas into three categories based on income for low, medium and high income, there seems to be little evidence of racial profiling shown through the veil of darkness technique.
 
