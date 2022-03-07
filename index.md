@@ -95,7 +95,7 @@ So how our model works is that it takes in the first n months (lets use 3 in thi
 
 We see that our model is predicting to search more white people than black people regardless of having race as a feature or not while training the model. We believe that this is happening because only ~19% of the data we have is black drivers. It is also predicting searches mostly in service area 120.
 
-![image tooltip here](/images/Overall Precision_Recall.png) ![image tooltip here](/images/Precision.png) ![image tooltip here](/images/Recall.png)
+![image tooltip here](/images/Overall_Precision_Recall.png) ![image tooltip here](/images/Precision.png) ![image tooltip here](/images/Recall.png)
 
 The 3 graphs we have here are for when we give the model race as one of the features as well as only have it take in 3 months at a time. Between recall and precision, we see they kind of have a similar pattern, they are 0 for 3 iterations towards the beginning and then they both end up at 0 for both black and white drivers. The precision/recall overall is low toward the early iterations and then it gradually goes up in the later iterations.
 
