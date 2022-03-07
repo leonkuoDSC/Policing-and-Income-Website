@@ -85,27 +85,19 @@ Unfortunately, the downside to using the veil of darkness here is that there isn
 
 # Feedback Loop Simulation
 
-When we are preparing the Stanford Open Policing Data, we try to rule out columns that we
-think are not features that a police officer can come up with at the time of the stop if they wish to
-use our model. We decided to stick with 9 features, all of which are reasonable in that a police
-officer is able to pull up all the information necessary to input into the model. For example, we
-have the service area, a police officer should know which area they are currently assigned to, we
-have race/sex/age that can be pulled up from the license plate (only correct if the person driving
-is who the car is registered to), and day of the week.
-While cleaning and preparing our data, we are also trying to make our label/prediction much
-better. For example if our initial data had been a search but there was no contraband found then
-in our newly created label we would have a 0 meaning there should not have been a search in the
-first place.
+When we are preparing the Stanford Open Policing Data, we try to rule out columns that we think are not features that a police officer can come up with at the time of the stop if they wish to use our model. We decided to stick with 9 features, all of which are reasonable in that a police officer is able to pull up all the information necessary to input into the model. For example, we have the service area, a police officer should know which area they are currently assigned to, we have race/sex/age that can be pulled up from the license plate (only correct if the person driving is who the car is registered to), and day of the week.
 
-So how our model works is that it takes in the first n months (lets use 3 in this example) and
-trains the model on it. Then we take the next 3 months (April, May, June) and predict on that.
-When we have those predictions we then replace the actual labels with the predicted labels and
-we refit the model with April, May, June and the predicted labels and then we take the 3 months
-after and do the same until we reach December. We evaluate our model using recall and
-precision, as well as accuracy. The current Classifier we are using is LDA, but we will keep
-trying out different models to see which works best.
+While cleaning and preparing our data, we are also trying to make our label/prediction much better. For example if our initial data had been a search but there was no contraband found then in our newly created label we would have a 0 meaning there should not have been a search in the first place.
 
-If this model were to be deployed, we would expect police officers to use it if they had someone
-stopped and were trying to figure out if they should search them or not. The inputs to the model
-would all be available to the officer performing the stop, therefore the model should be able to
-give a good prediction of whether or not the officer should search or not.
+![image tooltip here](/images/MODEL.png)
+
+So how our model works is that it takes in the first n months (lets use 3 in this example) and trains the model on those first 3 months of the dataset. Then we take the next 3 months (Months 4-6) and predict on that. When we have those predictions we then replace the actual labels of Months 4-6 with the predicted labels and we refit the model with Months 4-6 and the predicted labels and then we take the 3 months after (Months 7-9) and do the same until we reach the last months of the dataset. We evaluate our model using recall and precision, as well as accuracy. The current Classifier we are using is LDA, but we will keep trying out different models to see which works best. When we get predictions, we do some modification to get better Y’s. If the model predicted 1, and it is actually 0, we change the label to a 0. If the model predicted 1 and it is actually 1, we keep the label of 1. If the model predicts 0 and it's actually 0, we keep the label of 0. Finally, if the model predicts 0 and it is actually 1, then we flip the label to 0.
+
+We see that our model is predicting to search more white people than black people regardless of having race as a feature or not while training the model. We believe that this is happening because only ~19% of the data we have is black drivers. It is also predicting searches mostly in service area 120.
+
+![image tooltip here](/images/Overall Precision_Recall.png) ![image tooltip here](/images/Precision.png) ![image tooltip here](/images/Recall.png)
+
+The 3 graphs we have here are for when we give the model race as one of the features as well as only have it take in 3 months at a time. Between recall and precision, we see they kind of have a similar pattern, they are 0 for 3 iterations towards the beginning and then they both end up at 0 for both black and white drivers. The precision/recall overall is low toward the early iterations and then it gradually goes up in the later iterations.
+
+If this model were to be deployed, we would expect police officers to use it if they had someone stopped and were trying to figure out if they should search them or not. The inputs to the model would all be available to the officer performing the stop, therefore the model should be able to give a good prediction of whether or not the officer should search or not.
+
