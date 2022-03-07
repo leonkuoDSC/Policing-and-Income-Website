@@ -14,13 +14,13 @@ The first methods we used to to judge a driver's percived income is using the av
 
 In order to get average income of service areas, we used census data of San Diego County which contained information on average income for each geographical census block. Then we joined the correct census blocks that fit or were a part of a service area and took the average from those census blocks for each service area. This is still a rough estimation given how large service areas can be compared to individual census blocks, but overall should be close to the actual average.
 
-![image tooltip here](/images/Searched By Service Area.png)
+![image tooltip here](/images/Searched_By_Service_Area.png)
 
 Here we have each Service Area represented as a bubble and we can see that police searched lower income service areas at a higher rate and that the higher a service area's income the less likely that drivers will be searched. One potential reason is that police treat lower income service areas differently and believe that they have a higher chance of having contraband and thus search drivers there more often. Or maybe the police don't expect higher income areas to have drivers with contraband.
 
 There may be two outliers below the curve at around 70k, but looking at it geospacially it can be more easily explained later.
 
-![image tooltip here](/images/Geospacial Income and Search.png)
+![image tooltip here](/images/Geospacial_Income_and_Search.png)
 
 In these geospacial plots, we can see the service areas with the lowest average income near the bottom right of San Diego county. And we see the 5 areas with the highest number of searches also in that area clustered together. 
 
@@ -28,7 +28,7 @@ The two outliers from before are the ones at the border of San Diego county, whe
 
 This could also point to those 5 clusered Service Areas being more heavily profiled.
 
-![image tooltip here](/images/Arrests After Search.png)
+![image tooltip here](/images/Arrests_After_Search.png)
 
 The graph above is the percent of searched drivers that were arrested by service area income. You see that the percent of searched people arrested actually goes up at higher income, so they are searched more and aren't arrested as often afterwards. This gives more evidence the lower income people are getting searched much more than they should be.
 
@@ -40,7 +40,7 @@ This technique limits the range of searches to all searches from an hour before 
 
 By adding the income of the service areas, we may be able to see a pattern emerge in where this racial profiling is taking place. Different income service areas may have larger populations of African American and Hispanic residents, so racial profiling may be easier for police despite the constraint so we may see less of a difference in those service areas. For this analysis, it made sense to divide the data into three income brackets, and it was settled to be under 80k, 80k to 110k and over 110k. This gets us a low, middle and high grouping where each has a similar amount of service areas.
 
-![image tooltip here](/images/Stops by Race Low Income.png) ![image tooltip here](/images/Stops by Race Med Income.png) ![image tooltip here](/images/Stops by Race High Income.png)
+![image tooltip here](/images/Stops_by_Race_Low_Income.png) ![image tooltip here](/images/Stops_by_Race_Med_Income.png) ![image tooltip here](/images/Stops_by_Race_High_Income.png)
 
 After grouping the service areas into three categories based on income for low, medium and high income, there seems to be no statistically siginificant evidence of racial profiling shown through the veil of darkness technique.
 
@@ -66,7 +66,7 @@ Similar to Veil of Darkness using Service Areas, we can use veil of darkness whi
 
 Unfortunately, the downside to using the veil of darkness here is that there isn't quite enough data in the dataset to come to any strong conclusions. The data was divided into three groups, under 10k, 10k to 20k, and above 20k.
 
-![image tooltip here](/images/Stops by Race cheap car.png) ![image tooltip here](/images/Stops by Race mean car.png) ![image tooltip here](/images/Stops by Race expensive car.png)
+![image tooltip here](/images/Stops_by_Race_cheap_car.png) ![image tooltip here](/images/Stops_by_Race_mean_car.png) ![image tooltip here](/images/Stops_by_Race_expensive_car.png)
 
 # Feedback Loop Simulation
 
