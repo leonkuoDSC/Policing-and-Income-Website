@@ -83,6 +83,8 @@ Unfortunately, the downside to using the veil of darkness here is that there isn
 
 ![image tooltip here](/images/Stops_by_Race_cheap_car.png) ![image tooltip here](/images/Stops_by_Race_mean_car.png) ![image tooltip here](/images/Stops_by_Race_expensive_car.png)
 
+Based on the data we have still, there isn't any statistically significant evidence for racial profiling.
+
 # Feedback Loop Simulation
 
 When we are preparing the Stanford Open Policing Data, we try to rule out columns that we think are not features that a police officer can come up with at the time of the stop if they wish to use our model. We decided to stick with 9 features, all of which are reasonable in that a police officer is able to pull up all the information necessary to input into the model. For example, we have the service area, a police officer should know which area they are currently assigned to, we have race/sex/age that can be pulled up from the license plate (only correct if the person driving is who the car is registered to), and day of the week.
