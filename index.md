@@ -103,3 +103,14 @@ The 3 graphs we have here are for when we give the model race as one of the feat
 
 If this model were to be deployed, we would expect police officers to use it if they had someone stopped and were trying to figure out if they should search them or not. The inputs to the model would all be available to the officer performing the stop, therefore the model should be able to give a good prediction of whether or not the officer should search or not.
 
+## Links
+
+Here are the links to different resources we used
+
+http://doi.org/10.18128/D050.V16.0: Geospacial Census Data
+
+https://openpolicing.stanford.edu/: Stanford Open Policing Project
+
+https://data.sandiego.gov/datasets/police-vehicle-stops/: San Diego Policing Dataset
+
+https://raw.githubusercontent.com/Tai-Pach/kbb/gh-pages/KBB_used_final_3.csv: Car Data from Kelly Blue Book
