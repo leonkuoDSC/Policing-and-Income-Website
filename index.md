@@ -40,11 +40,10 @@ This technique limits the range of searches to all searches from an hour before 
 
 By adding the income of the service areas, we may be able to see a pattern emerge in where this racial profiling is taking place. Different income service areas may have larger populations of African American and Hispanic residents, so racial profiling may be easier for police despite the constraint so we may see less of a difference in those service areas. For this analysis, it made sense to divide the data into three income brackets, and it was settled to be under 80k, 80k to 110k and over 110k. This gets us a low, middle and high grouping where each has a similar amount of service areas.
 
-Low Income             |  Medium Income|  High Income
+Low Income |  Medium Income|  High Income
 :-------------------------:|:-------------------------:|:-------------------------:
 ![image tooltip here](/images/Stops_by_Race_Low_Income.png) | ![image tooltip here](/images/Stops_by_Race_Med_Income.png) | ![image tooltip here](/images/Stops_by_Race_High_Income.png)
 
-![image tooltip here](/images/Stops_by_Race_Low_Income.png) ![image tooltip here](/images/Stops_by_Race_Med_Income.png) ![image tooltip here](/images/Stops_by_Race_High_Income.png)
 
 After grouping the service areas into three categories based on income for low, medium and high income, there seems to be no statistically siginificant evidence of racial profiling shown through the veil of darkness technique.
 
@@ -85,7 +84,10 @@ Similar to Veil of Darkness using Service Areas, we can use veil of darkness whi
 
 Unfortunately, the downside to using the veil of darkness here is that there isn't quite enough data in the dataset to come to any strong conclusions. The data was divided into three groups, under 10k, 10k to 20k, and above 20k.
 
-![image tooltip here](/images/Stops_by_Race_cheap_car.png) ![image tooltip here](/images/Stops_by_Race_mean_car.png) ![image tooltip here](/images/Stops_by_Race_expensive_car.png)
+Under 10k |  10k to 20k|  Above 20k
+:-------------------------:|:-------------------------:|:-------------------------:
+![image tooltip here](/images/Stops_by_Race_cheap_car.png) | ![image tooltip here](/images/Stops_by_Race_mean_car.png) | ![image tooltip here](/images/Stops_by_Race_expensive_car.png)
+
 
 Based on the data we have still, there isn't any statistically significant evidence for racial profiling.
 
@@ -101,7 +103,10 @@ So how our model works is that it takes in the first n months (lets use 3 in thi
 
 We see that our model is predicting to search more white people than black people regardless of having race as a feature or not while training the model. We believe that this is happening because only ~19% of the data we have is black drivers. It is also predicting searches mostly in service area 120.
 
-![image tooltip here](/images/Overall_Precision_Recall.png) ![image tooltip here](/images/Precision.png) ![image tooltip here](/images/Recall.png)
+Overall Precision and Recall |  Precision|  Recall
+:-------------------------:|:-------------------------:|:-------------------------:
+![image tooltip here](/images/Overall_Precision_Recall.png) | ![image tooltip here](/images/Precision.png) | ![image tooltip here](/images/Recall.png)
+
 
 The 3 graphs we have here are for when we give the model race as one of the features as well as only have it take in 3 months at a time. Between recall and precision, we see they kind of have a similar pattern, they are 0 for 3 iterations towards the beginning and then they both end up at 0 for both black and white drivers. The precision/recall overall is low toward the early iterations and then it gradually goes up in the later iterations.
 
