@@ -66,7 +66,9 @@ After plotting these variables, I found strong negative correlations between the
 
 We can see here in the graph above that as the average price of a car and the average income of a district increases, we see the search rate begin to shrink. To further investigate this correlation, I ran a logistic regression on these variables: car price, car age, income of the area the car was stopped, and the product of the car price and income of the area to predict the search and arrest rates.
 
-![image tooltip here](/images/logistic_search_price_age_income.png) ![image tooltip here](/images/logistic_arrest_price_age_income.png)
+Logsitic Regression on Searches | Logsitic Regression on Arrests
+:-------------------------:|:-------------------------:
+![image tooltip here](/images/logistic_search_price_age_income.png) | ![image tooltip here](/images/logistic_arrest_price_age_income.png)
 
 We can see that in both models, each coefficient is small and close to zero, showing that of the four variables, age actually has the most impact in the prediction that the model would make.
 
