@@ -40,9 +40,9 @@ This technique limits the range of searches to all searches from an hour before 
 
 By adding the income of the service areas, we may be able to see a pattern emerge in where this racial profiling is taking place. Different income service areas may have larger populations of African American and Hispanic residents, so racial profiling may be easier for police despite the constraint so we may see less of a difference in those service areas. For this analysis, it made sense to divide the data into three income brackets, and it was settled to be under 80k, 80k to 110k and over 110k. This gets us a low, middle and high grouping where each has a similar amount of service areas.
 
-Low Income             |  Medium Income
-:-------------------------:|:-------------------------:
-![image tooltip here](/images/Stops_by_Race_Low_Income.png) | ![image tooltip here](/images/Stops_by_Race_Med_Income.png)
+Low Income             |  Medium Income|  High Income
+:-------------------------:|:-------------------------:|:-------------------------:
+![image tooltip here](/images/Stops_by_Race_Low_Income.png) | ![image tooltip here](/images/Stops_by_Race_Med_Income.png) | ![image tooltip here](/images/Stops_by_Race_High_Income.png)
 
 ![image tooltip here](/images/Stops_by_Race_Low_Income.png) ![image tooltip here](/images/Stops_by_Race_Med_Income.png) ![image tooltip here](/images/Stops_by_Race_High_Income.png)
 
